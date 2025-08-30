@@ -10,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Wand2 } from 'lucide-react';
 import { generatePostsAction } from '@/lib/actions';
 import { Textarea } from '@/components/ui/textarea';
+import Image from 'next/image';
 
 export interface Post {
   copy: string;
