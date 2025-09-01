@@ -248,31 +248,43 @@ export default function Home() {
           </div>
         )}
       </main>
-      <footer className="py-8 px-4 border-t bg-background/80">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
-          <div className="text-center md:text-left">
-        <p className="font-semibold text-foreground">
-          © {new Date().getFullYear()} <a href="https://neontek.co.ke" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition">NeonTek</a>. All rights reserved.
-        </p>
-        <div className="mt-2 flex flex-wrap gap-4 justify-center md:justify-start text-muted-foreground text-sm">
-          <a href="https://neontek.co.ke/legal/terms-of-use" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline transition">Terms of Use</a>
-          <a href="https://neontek.co.ke/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline transition">Privacy Policy</a>
-          <a href="https://neontek.co.ke/contact" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline transition">Contact</a>
-          <a href="https://neontek.co.ke/about" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline transition">About NeonTek</a>
-        </div>
-          </div>
-          <div className="text-center md:text-right">
-        <p className="font-semibold mb-2 text-foreground">Explore More NeonTek Apps:</p>
-        <div className="flex flex-wrap gap-3 justify-center md:justify-end text-sm">
-          <a href="https://neontek.co.ke/apps/post-craft" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline transition">PostCraft AI</a>
-          <a href="https://neontek.co.ke/apps/fapiao" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline transition">Fapiao</a>
-          <a href="https://neontek.co.ke/apps/magistra" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline transition">Magistra</a>
-          <a href="https://neontek.co.ke/apps/qr-generator" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline transition">QR Generator</a>
-          <a href="https://neontek.co.ke/apps" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline transition">All Apps</a>
-        </div>
-          </div>
-        </div>
-      </footer>
+      <footer className="py-12 px-4 border-t border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12 text-sm text-gray-600 dark:text-gray-400">
+
+    {/* Section 1 */}
+    <div className="flex flex-col items-center md:items-start text-center md:text-left md:col-span-1 lg:col-span-2">
+      <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100 mb-2">NeonTek</h3>
+      <p className="mt-2 text-xs">
+        © {new Date().getFullYear()} NeonTek. All rights reserved.
+      </p>
+      <div className="flex flex-wrap gap-4 mt-4 justify-center md:justify-start">
+        <a href="https://neontek.co.ke/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline-offset-4 hover:underline">Privacy Policy</a>
+        <a href="https://neontek.co.ke/legal/terms-of-use" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline-offset-4 hover:underline">Terms of Use</a>
+        <a href="https://neontek.co.ke/contact" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline-offset-4 hover:underline">Contact</a>
+      </div>
+    </div>
+
+    {/* Section 2 */}
+    <div className="text-center md:text-left">
+      <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-4">Explore Our Apps</h4>
+      <div className="flex flex-col items-center md:items-start space-y-2">
+        <a href="https://neontek.co.ke/apps/post-craft" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline-offset-4 hover:underline">PostCraft AI</a>
+        <a href="https://neontek.co.ke/apps/fapiao" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline-offset-4 hover:underline">Fapiao</a>
+        <a href="https://neontek.co.ke/apps/magistra" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline-offset-4 hover:underline">Magistra</a>
+        <a href="https://neontek.co.ke/apps/qr-generator" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline-offset-4 hover:underline">QR Generator</a>
+        <a href="https://neontek.co.ke/apps" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline-offset-4 hover:underline">All Apps</a>
+      </div>
+    </div>
+
+    {/* Section 3 */}
+    <div className="flex justify-center md:justify-end text-center md:text-right md:col-span-1 lg:col-span-1">
+      <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-400 hover:text-gray-600 dark:text-gray-600 dark:hover:text-gray-400 transition-colors underline-offset-4 hover:underline">
+        Images from Pexels
+      </a>
+    </div>
+
+  </div>
+</footer>
     </div>
   );
 }
