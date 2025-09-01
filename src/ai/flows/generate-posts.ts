@@ -12,6 +12,10 @@ import {
   GeneratePostsOutputSchema,
 } from '@/ai/schemas/generate-posts';
 import {z} from 'genkit';
+import {createClient} from 'pexels';
+
+// Pexels API client initialization
+const pexelsClient = createClient(process.env.PEXELS_API_KEY || '');
 
 const postGenerationPrompt = ai.definePrompt({
   name: 'postGenerationPrompt',
@@ -56,15 +60,39 @@ const generatePostsFlow = ai.defineFlow(
       throw new Error('Failed to generate post ideas.');
     }
 
-    const posts = postIdeas.map((idea, index) => {
-      return {
-        copy: idea.copy,
-        hashtags: idea.hashtags,
-        imageUrl: `https://picsum.photos/600/400?random=${index}`, // Use picsum for placeholders
-      };
-    });
+    const postsWithImages = await Promise.all(
+      postIdeas.map(async (idea, index) => {
+        const defaultImageUrl = `https://picsum.photos/600/400?random=${index}`;
 
-    return {posts};
+        try {
+          const pexelsResponse = await pexelsClient.photos.search({
+            query: idea.imageDescription,
+            per_page: 1, // one image
+            size: 'large',
+          });
+
+          const imageUrl = pexelsResponse.photos.length > 0
+            ? pexelsResponse.photos[0].src.large
+            : defaultImageUrl; 
+          
+          return {
+            copy: idea.copy,
+            hashtags: idea.hashtags,
+            imageUrl,
+          };
+        } catch (error) {
+          console.error(`Pexels API call failed for image description "${idea.imageDescription}":`, error);
+          // Return the post with the default placeholder image on API error
+          return {
+            copy: idea.copy,
+            hashtags: idea.hashtags,
+            imageUrl: defaultImageUrl,
+          };
+        }
+      })
+    );
+
+    return {posts: postsWithImages};
   }
 );
 
