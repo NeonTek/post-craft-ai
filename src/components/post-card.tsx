@@ -108,7 +108,7 @@ export default function PostCard({ post, index }: PostCardProps) {
         <div className="flex flex-wrap gap-2">
           {currentHashtags.map((tag, i) => (
             <Badge key={i} variant="secondary">
-              #{tag}
+              {tag}
             </Badge>
           ))}
         </div>
