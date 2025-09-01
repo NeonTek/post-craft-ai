@@ -115,16 +115,36 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="sticky top-0 z-10 w-full bg-background/80 backdrop-blur-md border-b">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Image src="/neontek.png" alt="PostCraft AI Logo" width={32} height={32} />
-            <h1 className="text-2xl font-headline font-bold text-foreground">
-              PostCraft AI
-            </h1>
-          </div>
-        </div>
-      </header>
+      <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-950/80">
+  <div className="container flex h-16 items-center justify-between py-4">
+    
+    <div className="flex items-center space-x-2 md:space-x-4">
+      <a href="https://neontek.co.ke" className="flex items-center space-x-2 font-bold transition-transform hover:scale-105">
+        <span className="text-xl text-primary font-black">NeonTek</span>
+      </a>
+      {/* Visual Separator */}
+      <span className="text-gray-400 dark:text-gray-600">|</span>
+      <a href="https://neontek.co.ke/apps/post-craft" className="text-sm font-semibold text-gray-700 hover:text-primary transition-colors dark:text-gray-300">
+        PostCraft AI
+      </a>
+    </div>
+
+    <nav className="flex items-center space-x-6">
+      <div className="hidden md:flex items-center space-x-6">
+        <a href="https://neontek.co.ke" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-400">
+          NeonTek
+        </a>
+      </div>
+      <a
+        href="https://neontek.co.ke/contact"
+        className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background h-9 px-4 py-2 bg-primary text-white hover:bg-primary/90"
+      >
+        Contact NeonTek
+      </a>
+    </nav>
+
+  </div>
+</header>
 
       <main className="flex-grow container mx-auto p-4 md:p-8">
         <section className="text-center mb-12">
